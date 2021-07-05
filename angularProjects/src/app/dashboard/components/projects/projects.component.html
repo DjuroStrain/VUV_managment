@@ -1,0 +1,61 @@
+<button mat-raised-button (click)="openDialogAdd()" id="btnAddAct">Dodaj</button>
+<form class="search">
+  <div class="input-group">
+    <div class="form-outline">
+      <input type="search" (keyup)="applyFilter($event.target['value'])" id="searchBar" class="form-control" placeholder="Traži"/>
+    </div>
+    </div>
+</form>
+
+<table mat-table [dataSource]="listData" class="mat-elevation-z8" matSort>
+    <ng-container matColumnDef="rbr">
+      <th mat-header-cell class="th-row" *matHeaderCellDef> Rbr </th>
+      <td mat-cell *matCellDef="let element; let i = index"> {{i + 1}} </td>
+    </ng-container>
+  
+    <ng-container matColumnDef="naziv">
+      <th mat-header-cell class="th-row" *matHeaderCellDef mat-sort-header> Naziv </th>
+      <td mat-cell *matCellDef="let element"> {{element.naziv}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="nositelj">
+      <th mat-header-cell class="th-row" *matHeaderCellDef mat-sort-header> Nositelj </th>
+      <td mat-cell *matCellDef="let element"> {{element.nositelj}} </td>
+    </ng-container>
+  
+    <ng-container matColumnDef="vrijednost">
+      <th mat-header-cell class="th-row" *matHeaderCellDef mat-sort-header> Vrijednost </th>
+      <td mat-cell *matCellDef="let element"> {{element.vrijednost}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="voditelj">
+        <th mat-header-cell class="th-row" *matHeaderCellDef mat-sort-header> Voditelj </th>
+        <td mat-cell *matCellDef="let element"> {{element.voditelj}} </td>
+      </ng-container>
+
+    <ng-container matColumnDef="lokacija">
+        <th mat-header-cell class="th-row" *matHeaderCellDef mat-sort-header> Lokacija </th>
+        <td mat-cell *matCellDef="let element"> {{element.grad}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="status">
+        <th mat-header-cell class="th-row"   *matHeaderCellDef mat-sort-header> Status </th>
+        <td mat-cell *matCellDef="let element"> {{element.status}} </td>
+    </ng-container>
+    
+    <ng-container matColumnDef="actions">
+      <th mat-header-cell *matHeaderCellDef> Uredi </th>   
+      <td mat-cell *matCellDef="let element"> 
+        <button mat-mini-fab (click)="openDialogEdit(element)">
+          <mat-icon>update</mat-icon>
+        </button>
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+  <mat-paginator [length]="100"
+              [pageSize]="5"
+              [pageSizeOptions]="[5, 10]">
+  </mat-paginator>

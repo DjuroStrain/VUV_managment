@@ -1,0 +1,82 @@
+@import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
+
+button{
+    background-color: #f44336 !important    ; 
+}
+
+.inline{
+    margin-left: 20px;
+    display: flex;
+}
+
+.search{
+    padding-left: 18px;
+}
+
+.projectDrop{
+    padding-left: 18px;
+}
+
+mat-table{
+    border-radius: 8px;
+    overflow:hidden !important;
+}
+
+table {
+    width: 100%;
+    background-color: transparent !important;
+    margin-left: 15px;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    overflow-y: scroll;
+    }
+
+    // button{
+    //     margin-left: 10px;
+    //     margin-top: 8px;
+    // }
+    .mat-row:nth-child(even){
+        background-color: transparent;
+    }
+            
+    .mat-row:nth-child(odd){
+        background-color: transparent;
+    }
+    th{
+        background-color: #F7CAC9; 
+    }
+
+    :host ::ng-deep .mat-sort-header-container { 
+        display: flex;  
+        justify-content: center;
+    }
+
+    th.mat-header-cell, td.mat-cell { 
+        text-align: center; 
+    }  
+
+    .th-row{
+        font-size: medium !important;
+    }
+    mat-paginator{
+        background-color: transparent !important;
+        color: black !important;
+    }
+    td{
+        color: black !important;
+        font-size: medium !important;
+    }
+    th{
+        color: #8b0000 !important;
+        font-size: large !important;
+        background-color: transparent !important;
+    }
+    mat-label{
+        color: black;
+    }
+
+
+      

@@ -1,0 +1,43 @@
+.container-fluid{
+    overflow-y: scroll;
+    height: 750px;
+}
+
+button{
+    //background-color: #f44336 !important;
+    color: black !important;
+}
+
+mat-form-field{
+    background-color: transparent;
+    color: black !important;
+}
+
+.card{
+    background-color: transparent;
+}
+
+::ng-deep .mat-select-value{    
+    color: black!important;  
+}
+
+mat-label{
+    color: black !important;
+}
+
+th{
+    color: darkred !important;
+}
+
+td{
+    justify-content: center;
+    align-items: center;
+    padding: 20px 5px 40px 5px;
+}
+
+fa-icon{
+    background-color: yellow;
+    padding: 10px 10px 10px 10px;
+    border-radius: 20px;
+    justify-content: center;
+}

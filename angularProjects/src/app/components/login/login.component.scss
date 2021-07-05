@@ -1,0 +1,128 @@
+
+body {
+	height: 100%;
+	background-image: url('../../dashboard/assets/background8.jpg') !important;
+	background-repeat: no-repeat;
+  	background-attachment: fixed;
+  	//background-position: center;
+	background-size: cover;
+}
+
+
+.app-header {
+	justify-content: space-between;
+	position: fixed;
+	top: 2%;
+	bottom: 100%;
+	left: 0;
+	right: 0;
+	z-index: 2;
+	box-shadow: 0 3px 5px -1px rgba(0, 0, 0, .2), 0 6px 10px 0 rgba(0, 0, 0, .14), 0 1px 18px 0 rgba(0, 0, 0, .12);
+	text-align: center;
+	color: black;
+}
+
+.main-wrapper {
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	-webkit-transform: translate(-50%, -50%);
+	transform: translate(-50%, -50%);
+	border-radius: 10px;
+}
+
+.positronx {
+	text-decoration: none;
+	color: #ffffff;
+}
+
+.box {
+	position: relative;
+	top: 0;
+	opacity: 1;
+	float: left;
+	padding: 60px 50px 40px 50px;
+	width: 100%;
+	background: #fff;
+	border-radius: 10px;
+	transform: scale(1);
+	-webkit-transform: scale(1);
+	-ms-transform: scale(1);
+	z-index: 5;
+	max-width: 330px;
+	background-color: transparent !important;
+
+}
+
+.box.back {
+	transform: scale(.95);
+	-webkit-transform: scale(.95);
+	-ms-transform: scale(.95);
+	top: -20px;
+	opacity: .8;
+	z-index: -1;
+}	
+
+.main-wrapper .example-form {
+	min-width: 100%;
+	max-width: 300px;
+	width: 100%;
+}
+
+.main-wrapper .example-full-width,
+.main-wrapper .btn-block {
+	width: 100%;
+	color: yellow !important;
+}
+
+.main-wrapper mat-card-header {
+	text-align: center;
+	width: 100%;
+	display: block;
+	font-weight: 700;
+}
+
+.main-wrapper mat-card-header mat-card-title {
+	font-size: 30px;
+	margin: 0;
+}
+
+.main-wrapper .mat-card {
+	padding: 45px 70px 55px;
+}
+
+.main-wrapper .mat-raised-button {
+	border: 1px solid currentColor;
+	line-height: 44px;
+}
+
+.main-wrapper .mat-form-field-appearance-legacy .mat-form-field-infix {
+	padding: 0.8375em 0;
+}
+
+.inputBox{
+	color: black !important;
+	font-size: 15px;
+}
+
+
+/***    Input edit    ****/
+
+
+// mat-label normal state style
+::ng-deep .mat-form-field-label {
+    color: black!important;
+    // color: $mainColor!important;
+}
+
+// mat-label focused style
+::ng-deep .mat-form-field.mat-focused .mat-form-field-label {
+    color: yellow!important;
+}
+
+// mat-label error style
+::ng-deep .mat-form-field.mat-form-field-invalid .mat-form-field-label {
+    color: red!important;
+}
+
+/*****  Input edit       *****/ 

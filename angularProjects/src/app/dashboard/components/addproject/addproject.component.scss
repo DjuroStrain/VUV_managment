@@ -1,0 +1,26 @@
+form{
+  text-align: center;
+}
+.inputWidth{
+  width: 200px !important;
+}
+
+.btn-dialog-close{
+  margin-right: 0;
+  margin-left: auto;
+}
+
+.buttons{
+  margin-left: 40px !important;
+  margin-bottom: 15px;
+
+  .btnClose{
+    background-color: black;
+    color: white;
+}
+}
+
+.mat-form-field{
+//margin-bottom: 10px !important;
+  margin-top: 10px;
+}

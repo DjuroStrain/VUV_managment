@@ -1,0 +1,26 @@
+<body>
+  <div class="main-wrapper" fxLayout="row" fxLayoutAlign="center center">
+    <mat-card class="box">
+      <mat-card-header>
+        <mat-card-title class="app-header">Prijava</mat-card-title>
+        <br>
+      </mat-card-header>
+      <form class="example-form">
+        <mat-card-content>
+          <mat-form-field class="inputBox">
+            <input id="email" type="email" matInput placeholder="Email" required>
+            <mat-error>Ovo polje je obavezno</mat-error>
+          </mat-form-field>
+          <mat-form-field class="inputBox">
+            <input id="password" type="password" matInput placeholder="Lozinka" required>
+            <mat-error>Ovo polje je obavezno</mat-error>
+          </mat-form-field>
+        </mat-card-content>
+        <button mat-raised-button color="primary" class="btn-block" (click)="checkLogin()">Prijavi se</button>
+      </form>
+    </mat-card>
+  </div>
+</body>
+
+
+

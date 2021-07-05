@@ -1,0 +1,63 @@
+<div class="container-fluid">
+    <form  [formGroup]="addmore">
+    <div class="card">
+      <div class="card-header text-center">Dodaj aktivnosti</div>
+      <div class="card-body">
+  
+          <div class="row">
+            <div class="col-sm-3">
+               <mat-form-field appearance="outline">
+                        <mat-label>Projekt</mat-label>
+                        <mat-select formControlName="projekt" id="selector">
+                          <mat-option value="">
+                            Odaberi
+                          </mat-option>
+                           <mat-option *ngFor="let proj of projectsActive" value="{{proj.sifra}}"> 
+                            {{proj.naziv}}
+                          </mat-option>
+                        </mat-select>
+                      </mat-form-field>
+            </div>
+          </div>
+                  <div class="row">
+                    <div class="col-sm-12 table-responsive" formArrayName="itemRows">
+                      <table class="table">
+                        <thead>
+                          <tr>
+                            <th style="white-space: nowrap;padding-right: 4em;float:center"><span class="required-field"></span>Ime </th>
+                            <th style="white-space: nowrap;padding-right: 4em;float:center"><span class="required-field"></span>Prezime </th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr *ngFor="let itemrow of addmore.controls.itemRows['controls']; let i=index"  [formGroupName]="i">
+  
+                            <td style="white-space: nowrap;"> <input  id="ime{{i}}" formControlName="ime" class="form-control"></td>
+                             <td style="white-space: nowrap;"> <input  id="prezime{{i}}" formControlName="prezime" class="form-control"></td>
+                            <td>
+                              <button mat-mini-fab (click)="deleteRow(i)">
+                                <mat-icon>delete</mat-icon>
+                              </button>
+                            </td>
+                          </tr>
+                        </tbody>
+                        <tfoot>
+                          <tr>
+                              <td>
+                                <button mat-mini-fab (click)="addNewRow()">
+                                  <mat-icon>add</mat-icon>
+                                </button>
+                              </td>
+                          </tr>
+                        </tfoot>
+                      </table>
+                  </div>
+  
+                </div>  
+      </div>
+      <div class="card-footer">
+         <button mat-raised-button color="primary" (click)="addMember()" [disabled]="addmore.invalid">Dodaj</button>
+      </div>
+    </div>
+  </form>
+  
+  </div>

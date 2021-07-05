@@ -1,0 +1,77 @@
+  <button mat-raised-button (click)="addMember()" id="btnAddAct">Dodaj</button>
+  <form class="search">
+    <div class="input-group">
+      <div class="form-outline">
+        <input type="search" (keyup)="applyFilter($event.target['value'])" id="searchBar" class="form-control" placeholder="Traži"/>
+      </div>
+      </div>
+  </form>
+<table mat-table [dataSource]="listData" class="mat-elevation-z8" matSort>
+    <ng-container matColumnDef="rbr">
+      <th mat-header-cell class="centre" *matHeaderCellDef> Rbr </th>
+      <td mat-cell *matCellDef="let element; let i = index"> {{i + 1}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="ime">
+      <th mat-header-cell class="centre" *matHeaderCellDef mat-sort-header> Ime </th>
+      <td mat-cell *matCellDef="let element"> {{element.ime}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="prezime">
+      <th mat-header-cell class="th-center" *matHeaderCellDef mat-sort-header> Prezime </th>
+      <td mat-cell *matCellDef="let element"> {{element.prezime}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="projekti">
+        <th mat-header-cell class="th-center" *matHeaderCellDef> Projekti </th>
+        <td mat-cell *matCellDef="let element"> 
+            <div *ngFor="let proj of element.projekt; let lastItem = last">
+                <span>{{proj.naziv}}</span><span *ngIf="!lastItem">,</span>
+            </div>
+         </td>
+      </ng-container>
+      <ng-container matColumnDef="actions2">
+        <th mat-header-cell class="th-center" *matHeaderCellDef> Aktivnosti </th>
+        <td mat-cell *matCellDef="let element"> 
+          <button id="btnDelete" mat-mini-fab (click)="openDialogActivities(element)">
+            <mat-icon>open_in_new</mat-icon>
+          </button>
+        </td>
+      </ng-container>
+
+    <ng-container matColumnDef="actions">
+      <th mat-header-cell *matHeaderCellDef> Obriši </th>   
+      <td mat-cell *matCellDef="let element"> 
+        <button id="btnDelete" mat-mini-fab (click)="openModal(contentDelete, element)">
+          <mat-icon>delete</mat-icon>
+        </button>
+      </td>
+    </ng-container>
+    <tr mat-header-row class="th-center" *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+  <mat-paginator [length]="100"
+              [pageSize]="5"
+              [pageSizeOptions]="[5, 10]">
+  </mat-paginator>
+  
+  <ng-template #contentDelete let-modal>
+    <div class="modal-header">
+      <h2 class="modal-title" id="addProject">Obriši člana</h2>
+      <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+      <form [formGroup]="deleteForm" (Submit)="onSubmit()">
+        <div class="form-group">
+            <input type="hidden" id="memberId" class="form-control" formControlName="sifra" name="idOfMember">
+            <h2>Jeste li sigurni da želite obrisati člana?</h2>
+        </div>
+      </form>
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')" (click)="deleteMember()">Obriši</button>
+      <button type="button" class="btn btn-danger" (click)="modal.close('Save click')">Odustani</button>
+    </div>
+  </ng-template>

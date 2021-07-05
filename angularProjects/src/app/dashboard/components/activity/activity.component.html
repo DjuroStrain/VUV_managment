@@ -1,0 +1,93 @@
+<!-- <div class="inline">
+  <div class="btnAddAct">
+    <button mat-raised-button [color]="themeColor" (click)="addActivity2()" >Dodaj</button>
+  </div>
+    <div class="input-group">
+      <div class="form-outline">
+        <input type="search" (keyup)="applyFilter($event.target['value'])" id="searchBar" class="form-control" placeholder="Traži"/>
+      </div>
+    </div>
+    <div class="projectDrop">
+      <mat-form-field>
+        <mat-label>Odaberi projekt</mat-label>
+        <mat-select name="project" id="selectedValue" [(ngModel)]="selectedOption" (selectionChange)="getActivities()">
+            <mat-option [value]="proj.naziv" *ngFor="let proj of projects">{{proj.naziv}}</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div> 
+</div> -->
+<div class="inline">
+  <div>
+    <button mat-raised-button (click)="addActivity2()" id="btnAddAct">Dodaj</button>
+  </div>
+  <form class="search">
+    <div class="input-group">
+      <div class="form-outline">
+        <input type="search" (keyup)="applyFilter($event.target['value'])" id="searchBar" class="form-control" placeholder="Traži"/>
+      </div>
+      </div>
+  </form>
+  <div class="projectDrop">
+        <mat-form-field>
+          <mat-label>Odaberi projekt</mat-label>
+          <mat-select name="project" id="selectedValue" [(ngModel)]="selectedOption" (selectionChange)="getActivities()">
+              <mat-option [value]="proj.naziv" *ngFor="let proj of projects">{{proj.naziv}}</mat-option>
+          </mat-select>
+        </mat-form-field>
+  </div>
+</div>
+<table mat-table id="table" [dataSource]="listData" class="mat-elevation-z8" matSort style="visibility: hidden;">
+    <ng-container matColumnDef="rbr">
+      <th mat-header-cell class="centre" *matHeaderCellDef mat-sort-header> Rbr </th>
+      <td mat-cell *matCellDef="let element; let i = index"> {{i + 1}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="naziv">
+      <th mat-header-cell class="centre" *matHeaderCellDef mat-sort-header> Naziv </th>
+      <td mat-cell *matCellDef="let element"> {{element.naziv}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="opis">
+      <th mat-header-cell class="th-center" *matHeaderCellDef mat-sort-header> Opis </th>
+      <td mat-cell *matCellDef="let element"> {{element.opis}} </td>
+    </ng-container>
+  
+    <ng-container matColumnDef="vrijeme">
+      <th mat-header-cell class="th-center" *matHeaderCellDef mat-sort-header> Vrijeme(u danima) </th>
+      <td mat-cell *matCellDef="let element"> {{element.vrijeme}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="projekt">
+        <th mat-header-cell class="th-center" *matHeaderCellDef mat-sort-header> Projekt </th>
+        <td mat-cell *matCellDef="let element"> {{element.projekt}} </td>
+      </ng-container>
+
+    <ng-container matColumnDef="clanovi">
+        <th mat-header-cell class="th-center" *matHeaderCellDef> Članovi </th>
+        <td mat-cell *matCellDef="let element"> 
+            <div *ngFor="let memb of element.clanoviProjekta; let lastItem = last">
+                <span>{{memb.ime}} {{memb.prezime}}</span><span *ngIf="!lastItem">,</span>
+            </div>
+         </td>
+      </ng-container>
+
+    <ng-container matColumnDef="status">
+        <th mat-header-cell class="th-center" *matHeaderCellDef mat-sort-header> Status </th>
+        <td mat-cell *matCellDef="let element"> {{element.status}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="actions">
+      <th mat-header-cell *matHeaderCellDef> Uredi </th>   
+      <td mat-cell *matCellDef="let element"> 
+        <button id="btnUpdate" mat-mini-fab aria-label="Example icon button with a delete icon" (click)="openDialogEdit(element)">
+          <mat-icon>update</mat-icon>
+        </button>
+      </td>
+    </ng-container>
+    <tr mat-header-row class="th-center" *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+  <mat-paginator id="paginator" style="visibility: hidden;" [length]="100"
+              [pageSize]="5"
+              [pageSizeOptions]="[5, 10]">
+  </mat-paginator>

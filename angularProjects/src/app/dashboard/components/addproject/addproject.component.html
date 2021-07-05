@@ -1,0 +1,66 @@
+
+<mat-toolbar>
+  <span>Dodaj projekt</span>
+  <span class="fill-remaining-space"></span>
+  <button class="btn-dialog-close" mat-stroked-button (click)="onNoClick()" tabIndex="-1"><mat-icon>clear</mat-icon></button>
+</mat-toolbar>
+<form [formGroup]="addProjectsForm" class="normal-form" >
+  <mat-grid-list cols="2" rowHeight="400px">
+    <mat-grid-tile>
+      <div class="controles-container">
+        <mat-form-field class="inputWidth">
+          <input formControlName="naziv" matInput placeholder="Naziv" required>
+          <mat-error>Ovo polje je obavezno!</mat-error>
+        </mat-form-field>
+        <mat-form-field class="inputWidth">
+          <input formControlName="nositelj" matInput placeholder="Nositelj" required>
+          <mat-error>Ovo polje je obavezno!</mat-error>
+        </mat-form-field>
+        <mat-form-field class="inputWidth">
+          <input formControlName="vrijednost" type="number" min="1" matInput placeholder="Vrijednost" required>
+          <mat-error>Ovo polje je obavezno! Unesite broj između 1 i 10000000000</mat-error>
+        </mat-form-field>
+        <mat-form-field class="inputWidth">
+          <mat-label>Izaberi voditelja</mat-label>
+          <mat-select formControlName="voditelj">
+              <mat-option [value]="memb.sifra" *ngFor="let memb of members">{{memb.ime}} {{memb.prezime}}</mat-option>
+          </mat-select>
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+          <mat-label>Dodaj članove</mat-label>
+          <mat-select formControlName="clanovi"  multiple>
+            <mat-option [value]="memb.sifra" *ngFor="let memb of members">{{memb.ime}} {{memb.prezime}}</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+    </mat-grid-tile>
+    <mat-grid-tile>
+      <div class="controles-container">
+         <mat-form-field class="inputWidth">
+          <input formControlName="adresa" matInput placeholder="Adresa" required>
+          <mat-error>Ovo polje je obavezno!</mat-error>
+        </mat-form-field>
+         <mat-form-field class="inputWidth">
+          <input formControlName="postanskiBroj" type="number" min="1" matInput placeholder="Poštanski broj" required>
+          <mat-error>Ovo polje je obavezno! Unesite broj između 1 i 100000</mat-error>
+        </mat-form-field>
+         <mat-form-field class="inputWidth"> 
+          <input formControlName="grad" matInput placeholder="Grad" required>
+          <mat-error>Ovo polje je obavezno!</mat-error>
+        </mat-form-field>
+         <mat-form-field class="inputWidth">
+          <input formControlName="latituda" type="number" min="-90" max="90" matInput placeholder="Latituda" required>
+          <mat-error>Ovo polje je obavezno! Unesite broj između -90 i 90</mat-error>
+        </mat-form-field>
+         <mat-form-field class="inputWidth">
+          <input formControlName="longituda" type="number" min="-180" max="180" matInput placeholder="Longituda" required>
+          <mat-error>Ovo polje je obavezno! Unesite broj između -180 i 180</mat-error>
+        </mat-form-field>
+        <div mat-dialog-actions class="buttons">
+          <button mat-raised-button (click)="onNoClick()" class="btnClose">Zatvori</button>
+          <button mat-raised-button  class="button is-link is-small" color="primary" (click)="addProject()" [disabled]="addProjectsForm.invalid" cdkFocusInitial>Dodaj</button>
+        </div>
+      </div>
+    </mat-grid-tile>
+  </mat-grid-list>
+</form>

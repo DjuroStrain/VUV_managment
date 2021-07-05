@@ -1,0 +1,114 @@
+
+.pocetna{
+    background-image: url('../../assets/background8.jpg');
+    background-size:cover; 
+    width:auto;
+    height: 100%;
+}
+
+.projekti{
+    background-image: url('../../assets/background12.jpg');
+    background-size:cover; 
+    width:auto;
+    height: 100%;
+}
+
+mat-sidenav-container {
+    
+    button{
+        color: black !important;
+    }
+
+    mat-sidenav{
+        background-color: transparent;
+        font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        mat-nav-list{
+            .chevron-button{
+                transition: 300ms ease-in-out;
+                transform: rotate(0deg);
+                right: 0;
+                float: right;
+                position: absolute;
+            }
+
+            .chevron-button.rotated{
+                transform: rotate(180deg);
+            }
+
+            /*.sidenav-button{
+                
+            }*/
+            
+            .tabs{
+                margin-top: 10px;
+            }
+        }
+    }
+}
+
+mat-toolbar{
+    background-color: transparent;
+}
+
+#divImg{
+    background-color: transparent;
+    height: 100px;
+    overflow: hidden;
+    position: relative;
+}
+span{
+    background-color: #f44336;
+    color: black;
+    float: right;
+    border-radius: 20px;
+    padding: 10px 10px 10px 10px;
+    margin-left: 10px;
+    width: 100%;
+    text-align: center;
+}
+h4{
+    color: #f44336;
+}
+
+// .container {
+//     height: 100px;
+//     overflow: hidden;
+//     position: relative;
+//   }
+
+  .scrolling-text {
+    position: absolute;
+    white-space: nowrap;
+    font-size: 40px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin-top: 100px;
+  }
+
+  .no-scrolling-text {
+    visibility: hidden;
+  }
+
+  .content{
+    height: 100%;
+    overflow: hidden;
+     position: relative;
+  }
+
+  .toolbar{
+      background-color: transparent !important;
+      border: none;
+  }
+
+  #btnSignOut{
+    position:absolute;
+    bottom:1%;
+  }
+
+  .footer{
+      position: absolute;
+      bottom: 0px;
+      width: 100%;
+      height: 30px;
+      font-size: 18px;
+      text-align: center;
+  }

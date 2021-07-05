@@ -1,0 +1,63 @@
+ <mat-sidenav-container autosize [ngClass]="_router.url === '/projekti_pocetna' ? 'pocetna': 'projekti'">
+        <mat-sidenav #sidenav mode="side" opened="true">
+            <mat-nav-list>
+                <mat-list-item>
+                    <mat-icon mat-list-icon class="chevron-button sidenav-button" (click)="isExpanded = !isExpanded" [ngClass]="{'rotated': isExpanded}">chevron_right</mat-icon>
+                </mat-list-item>
+
+                <mat-list-item routerLink="/projekti_pocetna" class="tabs" title="Početna">
+                    <button mat-mini-fab color="primary">
+                        <mat-icon title="Početna">home</mat-icon>
+                      </button>
+                    <span *ngIf="isExpanded">Početna</span>
+                </mat-list-item>
+    
+                <mat-list-item routerLink="/projekti_pocetna/projekti" class="tabs" title="Projekti">
+                    <button mat-mini-fab color="primary">
+                        <mat-icon title="Projekti">assignment</mat-icon>
+                      </button>
+                    <span *ngIf="isExpanded">Projekti</span>
+                </mat-list-item>
+    
+                <mat-list-item routerLink="/projekti_pocetna/aktivnosti" class="tabs" title="Aktivnosti">
+                    <button mat-mini-fab color="primary">
+                        <mat-icon title="Aktivnosti">rowing</mat-icon>
+                      </button>
+                    <span *ngIf="isExpanded">Aktivnosti</span>
+                </mat-list-item>
+    
+                <mat-list-item routerLink="/projekti_pocetna/clanovi" class="tabs" title="Članovi">
+                    <button mat-mini-fab color="primary">
+                        <mat-icon title="Članovi">group</mat-icon>
+                      </button>
+                    <span *ngIf="isExpanded">Članovi</span>
+                </mat-list-item>
+    
+                <mat-list-item routerLink="../" class="tabs" id="btnSignOut">
+                    <!-- <mat-icon mat-list-icon class="">logout</mat-icon> -->
+                    <button mat-mini-fab color="primary">
+                        <mat-icon>logout</mat-icon>
+                      </button>
+                    <span *ngIf="isExpanded">Odjava</span>
+                </mat-list-item>
+    
+            </mat-nav-list>
+        </mat-sidenav>
+    
+    
+        <div class="content">
+            <mat-toolbar>
+                <h4 *ngIf="_router.url != '/projekti_pocetna'">VUV managment</h4>    
+            </mat-toolbar>
+            <div #divImg>
+                <router-outlet></router-outlet> 
+                <div [@scroll]="state" (@scroll.done)="scrollDone()" id="head-text" (mouseover)="getRandomColor()"
+                [ngClass]="_router.url === '/projekti_pocetna' ? 'scrolling-text': 'no-scrolling-text'">Dobrodošli na stranicu VUV managment!</div>
+            </div>
+            <div class="footer"> 
+                 Copyright &copy; 2021, Đuro Belačić, VUV
+            </div>
+        </div>
+    </mat-sidenav-container>    
+
+

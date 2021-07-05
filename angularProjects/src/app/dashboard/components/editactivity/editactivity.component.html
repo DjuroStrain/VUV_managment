@@ -1,0 +1,75 @@
+<!-- <h1 mat-dialog-title>Uredi projekt</h1>
+<form [formGroup]="editActivityForm">
+    <div mat-dialog-content class="width">
+      <mat-grid-list cols="2" >
+        <mat-grid-tile>
+          <div class="controles-container">
+            <mat-form-field>
+                <mat-label>Naziv</mat-label>
+                <input class="input" matInput formControlName="naziv" required>
+              </mat-form-field>
+              <mat-form-field>
+                <mat-label>Opis</mat-label>
+                <input matInput formControlName="opis" required>
+              </mat-form-field>
+              <mat-form-field>
+                <mat-label>Vrijeme</mat-label>
+                <input matInput type="number" min="1" formControlName="vrijeme" required>
+              </mat-form-field>
+              <mat-form-field>
+                <mat-label> Status</mat-label>
+                <input matInput formControlName="status" id="activityStatus" required>
+                <div>
+                  <button mat-raised-button color="black" (click)="changeActivity()">Promijeni status</button>
+                  <br>
+                </div>
+              </mat-form-field>  
+        </div>
+        </mat-grid-tile>
+      </mat-grid-list>
+    </div>
+</form>
+<div mat-dialog-actions class="buttons">
+  <button mat-raised-button (click)="onNoClick()" color="red">Zatvori</button>
+   <button mat-raised-button  class="button is-link is-small" color="primary" (click)="editActivity()" [disabled]="editActivityForm.invalid" cdkFocusInitial>Uredi</button>
+</div>  -->
+
+
+<div class="myClass">
+  <mat-toolbar>
+    <span>Uredi projekt</span>
+    <span class="fill-remaining-space"></span>
+    <button class="btn-dialog-close" mat-stroked-button (click)="onNoClick()" tabIndex="-1"><mat-icon>clear</mat-icon></button>
+  </mat-toolbar>
+  <form [formGroup]="editActivityForm" class="normal-form">
+    <mat-grid-list cols="1" rowHeight="400px">
+      <mat-grid-tile>
+        <div class="controles-container">
+          <mat-form-field class="inputWidth">
+            <input formControlName="naziv" matInput placeholder="Naziv" required>
+            <mat-error>Ovo polje je obavezno!</mat-error>
+          </mat-form-field>
+          <mat-form-field class="inputWidth">
+            <input formControlName="opis" matInput placeholder="Opis" required>
+            <mat-error>Ovo polje je obavezno!</mat-error>
+          </mat-form-field>
+          <mat-form-field class="inputWidth">
+            <input formControlName="vrijeme" type="number" min="1" matInput placeholder="Vrijeme(u danima)" required>
+            <mat-error>Ovo polje je obavezno! Upiši broj između 1 i 5000!</mat-error>
+          </mat-form-field>
+          <mat-form-field class="inputWidth">
+            <input matInput formControlName="status" id="activityStatus" placeholder="Status" required>
+            <mat-error>Ovo polje je obavezno!</mat-error>
+          </mat-form-field>
+          <div>
+            <button mat-raised-button color="black" (click)="changeActivity()">Promijeni status</button>
+          </div>
+          <div mat-dialog-actions class="buttons">
+            <button mat-raised-button (click)="onNoClick()" color="red">Zatvori</button>
+             <button mat-raised-button  class="button is-link is-small" color="primary" (click)="editActivity()" [disabled]="editActivityForm.invalid" cdkFocusInitial>Uredi</button>
+          </div>
+        </div>
+      </mat-grid-tile>
+    </mat-grid-list>
+  </form>
+</div>
